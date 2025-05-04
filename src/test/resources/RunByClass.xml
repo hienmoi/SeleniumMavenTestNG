@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="RunByClass" verbose="1">
+    <test name="First Test">
+        <classes>
+            <class name="Bai9_TestNGFramework.DemoTestNG"/>
+            <class name="Bai9_TestNGFramework.DemoTestNG_02"/>
+            <class name="Bai9_TestNGFramework.DemoTestNG_03"/>
+        </classes>
+    </test>
+
+  <!--  <test name="Second Test">
+        <classes>
+            <class name="Bai9_TestNGFramework.DemoTestNG"/>
+            <class name="Bai9_TestNGFramework.DemoTestNG_02"/>
+            <class name="Bai9_TestNGFramework.DemoTestNG_03"/>
+        </classes>
+    </test>-->
+</suite>

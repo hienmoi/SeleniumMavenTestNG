@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Bai10_Annotation" verbose="1">
+    <test name="First Test">
+        <classes>
+            <class name="Bai10_Annotation.DemoAnnotation"/>
+
+        </classes>
+    </test>
+</suite>

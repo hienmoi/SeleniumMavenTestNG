@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="RunByPackage" verbose="1">
+    <test name="First Test">
+       <packages>
+           <package name="package_demo.*">
+               <include name ="package_demo.package1"/>
+               <exclude name="package_demo.package2"/>
+           </package>
+
+           <package name="package_demo.package2"/>
+
+       </packages>
+    </test>
+</suite>

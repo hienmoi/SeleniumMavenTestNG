@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Bai17_POM" verbose="1">
+    <test name="Login Test">
+        <classes>
+            <class name="Bai17_Page_Object_Model.TestCase.loginTest"/>
+        </classes>
+        
+    </test>
+    
+
+</suite>

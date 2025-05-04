@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="RunKetHop" verbose="1">
+    <test name="First Test">
+        <packages>
+            <package name="package_demo.*">
+                <include name ="package_demo.package1"/>
+                <exclude name="package_demo.package2"/>
+            </package>
+        </packages>
+        <classes>
+            <class name="Bai9_TestNGFramework.DemoTestNG_02"/>
+
+            <!--            chỉ chạy 1 số method trong class-->
+            <class name="Bai9_TestNGFramework.DemoTestNG_03">
+                <methods>
+                    <!--                    <exclude name="createAccount"></exclude>-->
+                    <include name="createAccount"/>
+                    <include name="testLogoutCRM"/>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

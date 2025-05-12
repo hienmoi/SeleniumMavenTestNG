@@ -4,13 +4,8 @@ import Common.BaseTest;
 import Common.LocatorCRM;
 import Keyword.WebUI;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class ThucHanh_CRM_p2 extends BaseTest {
 
@@ -33,7 +28,7 @@ public class ThucHanh_CRM_p2 extends BaseTest {
 //Mở màn Customer
         WebUI.clickElement(By.xpath(LocatorCRM.menuCustomer));
         //driver.findElement(By.xpath(LocatorCRM.menuCustomer)).click();
-        WebUI.getText(By.xpath(LocatorCRM.headerCustomer));
+        WebUI.getElementText(By.xpath(LocatorCRM.headerCustomer));
         //System.out.println(driver.findElement(By.xpath(LocatorCRM.headerCustomer)).getText());
 //Tạo mới customer
         WebUI.clickElement(By.xpath(LocatorCRM.AddNewCustomer));
@@ -82,9 +77,9 @@ public class ThucHanh_CRM_p2 extends BaseTest {
         WebUI.setText(By.xpath(LocatorCRM.searchListCustomer), "Đá quý 6" );
         //driver.findElement(By.xpath(LocatorCRM.searchListCustomer)).sendKeys("Đá quý 4");
         Thread.sleep(2000);
-        WebUI.waitElementVisible(By.xpath(LocatorCRM.itemCustomerFirst), 5);
+        WebUI.waitForElementVisible(By.xpath(LocatorCRM.itemCustomerFirst), 5);
         //driver.findElement(By.xpath(LocatorCRM.itemCustomerFirst)).isDisplayed();
-        WebUI.getText(By.xpath(LocatorCRM.itemCustomerFirst));
+        WebUI.getElementText(By.xpath(LocatorCRM.itemCustomerFirst));
         //driver.findElement(By.xpath(LocatorCRM.itemCustomerFirst)).getText();
 
 //Kểm tra customer mới add đúng thông tin đã nhập

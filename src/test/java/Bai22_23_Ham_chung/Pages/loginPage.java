@@ -1,4 +1,4 @@
-package Bai19_PageNavigation.Pages;
+package Bai22_23_Ham_chung.Pages;
 
 import Keyword.WebUI;
 import org.openqa.selenium.By;
@@ -21,48 +21,56 @@ public class loginPage {
     private By buttonLogin = By.xpath("//button[normalize-space()='Login']");
     private By errorMessage = By.xpath("//div[contains(@class, 'alert-dange')]");
 
-    //Khai báo hàm xây dựng, để truyền driver từ bên ngoài vào chính class này sử dụng
 
     private void setEmail(String email) {
-        driver.findElement(inputEmail).sendKeys(email);
+        //driver.findElement(inputEmail).sendKeys(email);
+        WebUI.setText(inputEmail,email );
     }
 
     private void setPassword(String password) {
-        driver.findElement(inputPassword).sendKeys(password);
+        //driver.findElement(inputPassword).sendKeys(password);
+        WebUI.setText(inputPassword, password);
     }
 
     private void clickLoginButton() {
-        driver.findElement(buttonLogin).click();
+        //driver.findElement(buttonLogin).click();
+        WebUI.clickElement(buttonLogin);
     }
 
     public void verifyLoginSuccess() {
-        Assert.assertFalse(driver.getCurrentUrl().contains("authentication"), "FAIL. Vẫn đang ở trang Login");
+        //Assert.assertFalse(driver.getCurrentUrl().contains("authentication"), "FAIL. Vẫn đang ở trang Login");
+        WebUI.assertNotContains(WebUI.getCurrentUrl(), "authentication", "FAIL. Vẫn đang ở trang Login");
     }
 
     public void verifyLoginFail() {
-        Assert.assertTrue(driver.getCurrentUrl().contains("authentication"), "FAIL. Không còn ở trang Login");
-        Assert.assertTrue(driver.findElement(errorMessage).isDisplayed(), "Error message NOT displays");
-        Assert.assertEquals(driver.findElement(errorMessage).getText(), "Invalid email or password", "Content of error massage NOT match.");
+        //Assert.assertTrue(driver.getCurrentUrl().contains("authentication"), "FAIL. Không còn ở trang Login");
+        WebUI.assertContains(WebUI.getCurrentUrl(), "authentication", "FAIL. Không còn ở trang Login");
+        //Assert.assertTrue(WebUI.isElementDisplayed(errorMessage), "Error message NOT displays");
+
+        //Assert.assertEquals(WebUI.getElementText(errorMessage), "Invalid email or password", "Content of error massage NOT match.");
+        WebUI.assertEquals(WebUI.getElementText(errorMessage), "Invalid email or password", "Content of error massage NOT match.");
     }
     public void verifyLoginFail(String message) {
         Assert.assertTrue(driver.getCurrentUrl().contains("authentication"), "FAIL. Không còn ở trang Login");
-        Assert.assertTrue(driver.findElement(errorMessage).isDisplayed(), "Error message NOT displays");
-        Assert.assertEquals(driver.findElement(errorMessage).getText(), message, "Content of error massage NOT match.");
+        Assert.assertTrue(WebUI.isElementDisplayed(errorMessage), message);
+        Assert.assertEquals(WebUI.getElementText(errorMessage), message, "Content of error massage NOT match.");
     }
 
 
     //Các hàm xử lý cho chính trang này
     //Hàm login chỉ phục vụ trang Login
     public void loginCRM(String url, String email, String password) {
-
         WebUI.openURL(url);
-        setEmail(email);
-        setPassword(password);
-        clickLoginButton();
+        WebUI.waitForPageLoaded();
+        WebUI.setText(inputEmail, email);
+        WebUI.setText(inputPassword, password);
+        WebUI.clickElement(buttonLogin);
+        WebUI.waitForPageLoaded();
     }
+
+
     //Hàm login liên kết với trang Dashboard
     public dashboardPage loginCRM() {
-
         WebUI.openURL("https://crm.anhtester.com/admin/authentication");
         setEmail("admin@example.com");
         setPassword("123456");

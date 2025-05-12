@@ -1,7 +1,6 @@
 package Bai18_Page_Factory.Pages;
 
 import Keyword.WebUI;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -89,7 +88,7 @@ public class loginPage {
 
         //https://crm.anhtester.com/admin/authentication
        // driver.get(url); //Gọi từ class ConfigData dạng biến static
-        WebUI.open_url(url);
+        WebUI.openURL(url);
         setEmail(email);
         setPassword(password);
         clickLoginButton();

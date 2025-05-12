@@ -1,4 +1,4 @@
-package Bai19_PageNavigation.Pages;
+package Bai20_21_ThucHanh_CRM_POM.Pages;
 
 import Keyword.WebUI;
 import org.openqa.selenium.By;

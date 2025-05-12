@@ -58,7 +58,7 @@ public class loginPage {
 //        setEmail(email);
 //        setPassword(password);
 //        clickLoginButton();
-        WebUI.open_url(url);
+        WebUI.openURL(url);
         WebUI.clearText(inputEmail);
         WebUI.setText(inputEmail, email);
         WebUI.clearText(inputPassword);

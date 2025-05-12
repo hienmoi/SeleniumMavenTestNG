@@ -1,4 +1,4 @@
-package Bai19_PageNavigation.Pages;
+package Bai20_21_ThucHanh_CRM_POM.Pages;
 
 import Keyword.WebUI;
 import org.openqa.selenium.By;
@@ -21,7 +21,6 @@ public class loginPage {
     private By buttonLogin = By.xpath("//button[normalize-space()='Login']");
     private By errorMessage = By.xpath("//div[contains(@class, 'alert-dange')]");
 
-    //Khai báo hàm xây dựng, để truyền driver từ bên ngoài vào chính class này sử dụng
 
     private void setEmail(String email) {
         driver.findElement(inputEmail).sendKeys(email);
@@ -60,6 +59,8 @@ public class loginPage {
         setPassword(password);
         clickLoginButton();
     }
+
+
     //Hàm login liên kết với trang Dashboard
     public dashboardPage loginCRM() {
 
